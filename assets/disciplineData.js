@@ -43,5 +43,6 @@ const articles = [
             "Subject to Discharge"
         ]
     }
-
+<script src="../assets/disciplineData.js"></script>
+<script src="../script.js"></script>
 ];
