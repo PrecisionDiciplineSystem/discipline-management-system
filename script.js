@@ -109,10 +109,15 @@ function loadProgressions(){
     progressionSelect.innerHTML="";
 
 
-    let article =
-    articles.find(
-        a=>a.code === articleSelect.value
-    );
+   let article =
+articles.find(
+    a=>a.code === document.getElementById("articleSelect").value
+);
+
+
+if(!article){
+    return;
+}
 
 
     article.progressions.forEach(p=>{
