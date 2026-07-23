@@ -1,1 +1,111 @@
+<!DOCTYPE html>
 
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>
+Precision Discipline System
+</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<h1>
+Precision Discipline System
+</h1>
+
+
+<h2 id="welcomeUser">
+</h2>
+
+
+
+<nav>
+
+
+<a href="Pages/Generate.html">
+<button>
+Generate Discipline
+</button>
+</a>
+
+
+<br><br>
+
+
+<a href="Pages/History.html">
+<button>
+Employee History
+</button>
+</a>
+
+
+<br><br>
+
+
+<a href="Pages/Upload.html">
+<button>
+Upload Signed Documents
+</button>
+</a>
+
+
+<br><br>
+
+
+<button onclick="signOut()">
+Sign Out
+</button>
+
+
+</nav>
+
+
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@azure/msal-browser@2.38.3/lib/msal-browser.min.js"></script>
+
+<script src="script.js"></script>
+
+
+<script>
+
+
+const account =
+msalInstance.getAllAccounts()[0];
+
+
+if(account){
+
+document.getElementById("welcomeUser")
+.innerText =
+"Welcome " + account.name;
+
+}
+
+else{
+
+window.location.href="login.html";
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
