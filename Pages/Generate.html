@@ -27,16 +27,65 @@ Generate Discipline
 
 <main>
 
-<p>
-Discipline generator coming soon.
-</p>
+
+<label>
+Employee
+</label>
+
+<select id="employeeSelect"></select>
 
 
-<a href="../index.html">
-Back Home
-</a>
+<br><br>
+
+
+<label>
+Article
+</label>
+
+<select id="articleSelect"></select>
+
+
+<br><br>
+
+
+<label>
+Progression
+</label>
+
+<select id="progressionSelect"></select>
+
+
+<br><br>
+
+
+<label>
+Additional Description
+</label>
+
+<br>
+
+<textarea id="description"
+rows="5"
+cols="40"></textarea>
+
+
+<br><br>
+
+
+<button onclick="generateDocument()">
+Generate Document
+</button>
+
+
+<p id="result"></p>
+
 
 </main>
+
+
+<script src="../assets/disciplineData.js"></script>
+
+<script src="../script.js"></script>
 
 
 </body>
