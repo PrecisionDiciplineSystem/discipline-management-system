@@ -16,79 +16,54 @@ const msalConfig = {
 };
 
 
-
 const msalInstance =
 new msal.PublicClientApplication(msalConfig);
-
-
 
 
 
 async function signIn(){
 
 
-try{
+    try{
+
+        await msalInstance.loginPopup({
+
+            scopes:["User.Read"]
+
+        });
 
 
-const loginResponse =
-await msalInstance.loginPopup({
+        window.location.href =
+        "dashboard.html";
 
-scopes:[
-"User.Read"
-]
+    }
 
-});
+    catch(error){
 
+        console.error(error);
 
+        alert("Login failed.");
 
-console.log(loginResponse.account);
-
-
-
-window.location.href =
-"dashboard.html";
-
-
-
-}
-
-
-catch(error){
-
-
-console.error(error);
-
-
-alert(
-"Login failed. Check console."
-);
-
+    }
 
 }
-
-
-}
-
-
-
 
 
 
 function signOut(){
 
 
-const account =
-msalInstance.getAllAccounts()[0];
+    const account =
+    msalInstance.getAllAccounts()[0];
 
 
-msalInstance.logoutPopup({
+    msalInstance.logoutPopup({
 
-account:account,
+        account:account,
 
-postLogoutRedirectUri:
-"login.html"
+        postLogoutRedirectUri:
+        "login.html"
 
-});
-
+    });
 
 }
