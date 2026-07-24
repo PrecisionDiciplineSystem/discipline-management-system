@@ -52,17 +52,16 @@ async function signIn(){
 
 function signOut(){
 
-
     const account =
     msalInstance.getAllAccounts()[0];
 
 
     msalInstance.logoutPopup({
 
-        account:account,
+        account: account,
 
         postLogoutRedirectUri:
-        "index.html"
+        "https://precisiondisciplinesystem.github.io/discipline-management-system/login.html"
 
     });
 
