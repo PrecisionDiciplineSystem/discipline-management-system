@@ -62,7 +62,7 @@ function signOut(){
         account:account,
 
         postLogoutRedirectUri:
-        "login.html"
+        "https://precisiondisciplinesystem.github.io/discipline-management-system/login.html"
 
     });
 
