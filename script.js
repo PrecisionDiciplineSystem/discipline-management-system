@@ -16,8 +16,11 @@ const msalConfig = {
 };
 
 
+
 const msalInstance =
 new msal.PublicClientApplication(msalConfig);
+
+
 
 
 
@@ -26,8 +29,23 @@ new msal.PublicClientApplication(msalConfig);
 function checkLogin(){
 
 
+    const loggedOut =
+    sessionStorage.getItem("loggedOut");
+
+
+    // User manually signed out of the application
+
+    if(loggedOut){
+
+        return null;
+
+    }
+
+
+
     const accounts =
     msalInstance.getAllAccounts();
+
 
 
     if(accounts.length > 0){
@@ -37,12 +55,18 @@ function checkLogin(){
     }
 
 
+
     return null;
 
 }
 
 
 
+
+
+
+
+// Microsoft Login
 
 async function signIn(){
 
@@ -61,12 +85,27 @@ async function signIn(){
 
 
 
-        sessionStorage.setItem(
-            "user",
-            JSON.stringify(loginResponse.account)
+        // Remove logout flag after successful login
+
+        sessionStorage.removeItem(
+            "loggedOut"
         );
 
 
+
+        // Store user information
+
+        sessionStorage.setItem(
+
+            "user",
+
+            JSON.stringify(loginResponse.account)
+
+        );
+
+
+
+        // Send user to dashboard
 
         window.location.href =
         "dashboard.html";
@@ -82,7 +121,7 @@ async function signIn(){
 
 
         alert(
-        "Login failed."
+            "Login failed. Check console for details."
         );
 
 
@@ -94,30 +133,37 @@ async function signIn(){
 
 
 
+
+
+// Application Logout
+
 function signOut(){
 
-    const account =
-    msalInstance.getAllAccounts()[0];
+
+    // Mark application as logged out
+
+    sessionStorage.setItem(
+
+        "loggedOut",
+
+        "true"
+
+    );
 
 
-    if(account){
 
-        msalInstance.logoutRedirect({
+    // Clear saved application data
 
-            account: account,
+    sessionStorage.removeItem(
+        "user"
+    );
 
-            postLogoutRedirectUri:
-            "https://precisiondisciplinesystem.github.io/discipline-management-system/login.html"
 
-        });
 
-    }
+    // Return to login page
 
-    else{
+    window.location.href =
+    "login.html";
 
-        window.location.href =
-        "login.html";
-
-    }
 
 }
