@@ -85,23 +85,38 @@ hr{
 
 }
 
+/* Fixed Application Sidebar */
+
 .sidebar{
 
     position:fixed;
 
-    left:0;
-
     top:0;
-
+    left:0;
     bottom:0;
 
+    width:260px;
+
+    padding:30px;
+
     overflow-y:auto;
+
+    box-sizing:border-box;
 
 }
 
 
+
+/* Main Application Content */
+
 .content{
 
-    margin-left:300px;
+    margin-left:260px;
+
+    padding:50px;
+
+    min-height:100vh;
+
+    box-sizing:border-box;
 
 }
