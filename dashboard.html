@@ -66,19 +66,31 @@
 
 const account = msalInstance.getAllAccounts()[0];
 
+<script>
+
+const account =
+checkLogin();
+
+
 if(account){
 
-    document.getElementById("welcomeUser").innerText =
-    "Welcome,\n" + account.name;
+
+document.getElementById("welcomeUser")
+.innerText =
+"Welcome, " + account.name;
+
 
 }
+
 else{
 
-    window.location.href = "login.html";
+
+window.location.href =
+"login.html";
+
 
 }
 
 </script>
-
 </body>
 </html>
