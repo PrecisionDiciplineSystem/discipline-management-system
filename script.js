@@ -62,7 +62,7 @@ function signOut(){
         account:account,
 
         postLogoutRedirectUri:
-        "login.html"
+        "index.html"
 
     });
 
